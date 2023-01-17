@@ -1,6 +1,5 @@
 version: "3"
 services:
-  
   ui:
    build:
       context: ./ui
@@ -31,7 +30,8 @@ services:
     - ./api/src:/usr/app/src
    depends_on:
     - db
-
+   environment:
+    - MONGO_CONNECTION_STRING=mongodb+srv://Tester123:51FWAl9CFZuJe9xF@todo-cluster.dc3nz.mongodb.net/todos?retryWrites=true&w=majority
   db:
     image: mongo
     ports:
