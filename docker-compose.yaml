@@ -3,7 +3,7 @@ services:
   ui:
    build:
       context: ./ui
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
    ports:
     -  3000:3000
    container_name: todo_ui
@@ -20,7 +20,7 @@ services:
   api:
    build:
       context: ./api
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
    ports:
      - 3080:3080
    container_name: todo_api
