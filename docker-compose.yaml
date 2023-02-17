@@ -14,6 +14,7 @@ services:
     -  ./ui/public:/usr/app/public
    depends_on:
     - api
+   restart: always
    stdin_open: true
    tty: true
 
@@ -30,10 +31,12 @@ services:
     - ./api/src:/usr/app/src
    depends_on:
     - db
+   restart: always
    environment:
     - MONGO_CONNECTION_STRING=mongodb+srv://Tester123:51FWAl9CFZuJe9xF@todo-cluster.dc3nz.mongodb.net/todos?retryWrites=true&w=majority
   db:
     image: mongo
+    restart: always
     ports:
       - 27017:27017
     container_name: todo_db
