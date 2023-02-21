@@ -17,6 +17,7 @@ services:
    restart: always
    stdin_open: true
    tty: true
+   restart: always
 
   api:
    build:
@@ -35,6 +36,7 @@ services:
    environment:
     - MONGO_CONNECTION_STRING=mongodb+srv://Tester123:51FWAl9CFZuJe9xF@todo-cluster.dc3nz.mongodb.net/todos?retryWrites=true&w=majority
   db:
+    restart: always
     image: mongo
     restart: always
     ports:
