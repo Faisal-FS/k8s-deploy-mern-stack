@@ -6,18 +6,14 @@ services:
       dockerfile: Dockerfile
    ports:
     -  3000:3000
-   container_name: todo_ui
+   container_name: mern_ui
    networks:
     -  mern-stack-net
-   volumes:
-    -  ./ui/src:/usr/app/src
-    -  ./ui/public:/usr/app/public
    depends_on:
     - api
    restart: always
    stdin_open: true
    tty: true
-   restart: always
 
   api:
    build:
@@ -25,23 +21,20 @@ services:
       dockerfile: Dockerfile
    ports:
      - 3080:3080
-   container_name: todo_api
+   container_name: mern_api
    networks:
      - mern-stack-net
-   volumes:
-    - ./api/src:/usr/app/src
    depends_on:
     - db
    restart: always
    environment:
-    - MONGO_CONNECTION_STRING=mongodb+srv://Tester123:51FWAl9CFZuJe9xF@todo-cluster.dc3nz.mongodb.net/todos?retryWrites=true&w=majority
+    - MONGO_CONNECTION_STRING=mongodb://mern_db:27017/todos
   db:
     restart: always
     image: mongo
-    restart: always
     ports:
       - 27017:27017
-    container_name: todo_db
+    container_name: mern_db
     networks:
       - mern-stack-net
     volumes:

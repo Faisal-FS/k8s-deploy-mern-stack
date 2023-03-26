@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://todo_api:3080",
+  "proxy": "http://mern_api:3080",
   "eslintConfig": {
     "extends": [
       "react-app",
